@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import {
   ArrowRight,
   CalendarDays,
@@ -186,6 +186,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:eventTitle" element={<EventDetailsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
@@ -193,7 +198,34 @@ function App() {
 }
 
 function EventCard({ event }) {
-  return <article className="event-card"><div className="event-image"><img src={event.image} alt="" /><span className={`event-tag ${event.accent}`}>{event.category}</span><button aria-label={`Save ${event.title}`}>♡</button></div><div className="event-info"><h3>{event.title}</h3><div className="event-meta"><span><CalendarDays size={14} /> {event.date}</span><span><Clock3 size={14} /> {event.time}</span></div><div className="event-meta"><span><MapPin size={14} /> {event.location}</span></div><div className="event-bottom"><strong>{event.price} <small>/ person</small></strong><button>View details <ArrowRight size={14} /></button></div></div></article>;
+  const [saved, setSaved] = useState(false);
+  return <article className="event-card"><div className="event-image"><img src={event.image} alt={event.title} /><span className={`event-tag ${event.accent}`}>{event.category}</span><button className={saved ? "saved" : ""} aria-label={`Save ${event.title}`} onClick={() => setSaved(!saved)}>{saved ? "♥" : "♡"}</button></div><div className="event-info"><h3>{event.title}</h3><div className="event-meta"><span><CalendarDays size={14} /> {event.date}</span><span><Clock3 size={14} /> {event.time}</span></div><div className="event-meta"><span><MapPin size={14} /> {event.location}</span></div><div className="event-bottom"><strong>{event.price} <small>/ person</small></strong><Link to={`/events/${encodeURIComponent(event.title)}`}>View details <ArrowRight size={14} /></Link></div></div></article>;
+}
+
+function PageShell({ children }) {
+  return <div className="app"><header className="site-header"><Link className="brand" to="/"><span className="brand-mark"><Sparkles size={17} /></span>gatherly<span className="brand-dot">.</span></Link><nav className="main-nav page-nav"><Link to="/">Home</Link><Link to="/events">Explore events</Link><Link to="/about">About us</Link><Link to="/contact">Contact</Link></nav><div className="header-actions"><Link className="login-link" to="/contact">Log in</Link><Link className="button button-dark" to="/events">Explore events <ArrowRight size={16} /></Link></div></header>{children}<footer className="site-footer"><div className="footer-top"><div><Link className="brand" to="/"><span className="brand-mark"><Sparkles size={17} /></span>gatherly<span className="brand-dot">.</span></Link><p>Bringing people together,<br />one experience at a time.</p></div><div className="footer-links"><div><strong>Explore</strong><Link to="/events">All events</Link><Link to="/events">Music</Link><Link to="/events">Workshops</Link></div><div><strong>Company</strong><Link to="/about">About us</Link><Link to="/#how-it-works">How it works</Link><Link to="/contact">Contact</Link></div><div><strong>Follow along</strong><a href="#instagram"><Instagram size={15} /> Instagram</a><a href="#facebook">Facebook</a><a href="#linkedin">LinkedIn</a></div></div></div><div className="footer-bottom"><span>© 2026 Gatherly. Made for moments.</span><span>Privacy policy &nbsp; Terms of use</span></div></footer></div>;
+}
+
+function EventsPage() {
+  const [query, setQuery] = useState("");
+  const filtered = events.filter((event) => `${event.title} ${event.category} ${event.location}`.toLowerCase().includes(query.toLowerCase()));
+  return <PageShell><main className="inner-page"><div className="eyebrow"><span /> Explore the calendar</div><h1 className="page-title">Find your next <em>experience.</em></h1><p className="page-lead">Browse events curated for curious, creative and social people.</p><label className="search-box page-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by event, category or location" /></label><div className="event-grid">{filtered.map((event) => <EventCard event={event} key={event.title} />)}</div>{!filtered.length && <div className="empty-state">No events match your search.</div>}</main></PageShell>;
+}
+
+function EventDetailsPage() {
+  const { eventTitle } = useParams();
+  const event = events.find((item) => item.title === decodeURIComponent(eventTitle));
+  if (!event) return <PageShell><main className="inner-page"><h1 className="page-title">Event not found.</h1><Link className="button button-primary" to="/events">Back to events</Link></main></PageShell>;
+  return <PageShell><main className="detail-page"><img className="detail-image" src={event.image} alt={event.title} /><div className="detail-copy"><span className={`event-tag ${event.accent}`}>{event.category}</span><h1 className="page-title">{event.title}</h1><p className="page-lead">Join a welcoming community for an unforgettable experience filled with new ideas, great conversations and memorable moments.</p><div className="detail-meta"><span><CalendarDays size={17} /> {event.date}</span><span><Clock3 size={17} /> {event.time}</span><span><MapPin size={17} /> {event.location}</span></div><button className="button button-primary" onClick={() => window.alert("Booking will be available in the final version.")}>Reserve your spot <Ticket size={17} /></button></div></main></PageShell>;
+}
+
+function AboutPage() {
+  return <PageShell><main className="inner-page about-page"><div className="eyebrow"><span /> Our story</div><h1 className="page-title">Good things happen when people <em>come together.</em></h1><p className="page-lead">Gatherly makes it easy to discover meaningful experiences and find the people who make them special. We curate events that help communities connect, learn and celebrate.</p><div className="about-grid"><div><Users size={28} /><h3>Built for connection</h3><p>Find your kind of people in spaces designed for genuine connection.</p></div><div><Sparkles size={28} /><h3>Curated experiences</h3><p>Every event is selected to help you spend your time on what matters.</p></div><div><Ticket size={28} /><h3>Simple discovery</h3><p>Search, save and explore your next favorite thing in a few clicks.</p></div></div></main></PageShell>;
+}
+
+function ContactPage() {
+  const [sent, setSent] = useState(false);
+  return <PageShell><main className="inner-page contact-page"><div><div className="eyebrow"><span /> Say hello</div><h1 className="page-title">Let&apos;s make something <em>memorable.</em></h1><p className="page-lead">Have a question or want to host an event? Send us a note and our team will get back to you.</p></div><form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSent(true); }}><label>Name<input required placeholder="Your name" /></label><label>Email<input required type="email" placeholder="you@example.com" /></label><label>Message<textarea required rows="5" placeholder="Tell us how we can help..." /></label><button className="button button-primary" type="submit">{sent ? "Message sent ✓" : "Send message"} <ArrowRight size={16} /></button></form></main></PageShell>;
 }
 
 function Step({ number, title, text }) {
