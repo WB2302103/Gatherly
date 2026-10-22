@@ -1,10 +1,9 @@
 import { useMemo, useState } from "react";
-import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useParams } from "react-router-dom";
 import {
   ArrowRight,
   CalendarDays,
   Check,
-  ChevronDown,
   Clock3,
   Instagram,
   MapPin,
@@ -98,13 +97,13 @@ function LandingPage() {
           <button onClick={() => scrollTo("how-it-works")}>How it works</button>
           <button onClick={() => scrollTo("about")}>About us</button>
           <div className="mobile-actions">
-            <button className="button button-light">Log in</button>
-            <button className="button button-dark">Create account <ArrowRight size={16} /></button>
+            <Link className="button button-light" to="/login" onClick={() => setMenuOpen(false)}>Log in</Link>
+            <Link className="button button-dark" to="/signup" onClick={() => setMenuOpen(false)}>Create account <ArrowRight size={16} /></Link>
           </div>
         </nav>
         <div className="header-actions">
-          <button className="login-link">Log in</button>
-          <button className="button button-dark">Create account <ArrowRight size={16} /></button>
+          <Link className="login-link" to="/login">Log in</Link>
+          <Link className="button button-dark" to="/signup">Create account <ArrowRight size={16} /></Link>
         </div>
         <button className="menu-toggle" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X /> : <Menu />}
@@ -119,7 +118,7 @@ function LandingPage() {
             <p>Discover experiences that bring people together. From intimate workshops to unforgettable festivals, find your next favorite event.</p>
             <div className="hero-buttons">
               <button className="button button-primary" onClick={() => scrollTo("events")}>Explore events <ArrowRight size={17} /></button>
-              <button className="play-button"><span><Play size={14} fill="currentColor" /></span> See how it works</button>
+              <button className="play-button" onClick={() => scrollTo("how-it-works")}><span><Play size={14} fill="currentColor" /></span> See how it works</button>
             </div>
             <div className="hero-proof">
               <div className="avatar-stack">
@@ -191,6 +190,8 @@ function App() {
         <Route path="/events/:eventTitle" element={<EventDetailsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<AuthPage mode="login" />} />
+        <Route path="/signup" element={<AuthPage mode="signup" />} />
         <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
@@ -226,6 +227,40 @@ function AboutPage() {
 function ContactPage() {
   const [sent, setSent] = useState(false);
   return <PageShell><main className="inner-page contact-page"><div><div className="eyebrow"><span /> Say hello</div><h1 className="page-title">Let&apos;s make something <em>memorable.</em></h1><p className="page-lead">Have a question or want to host an event? Send us a note and our team will get back to you.</p></div><form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSent(true); }}><label>Name<input required placeholder="Your name" /></label><label>Email<input required type="email" placeholder="you@example.com" /></label><label>Message<textarea required rows="5" placeholder="Tell us how we can help..." /></label><button className="button button-primary" type="submit">{sent ? "Message sent ✓" : "Send message"} <ArrowRight size={16} /></button></form></main></PageShell>;
+}
+
+function AuthPage({ mode }) {
+  const isLogin = mode === "login";
+  const [submitted, setSubmitted] = useState(false);
+
+  return (
+    <PageShell>
+      <main className="inner-page auth-page">
+        <div className="auth-card">
+          <div className="eyebrow"><span /> {isLogin ? "Welcome back" : "Join Gatherly"}</div>
+          <h1 className="page-title">{isLogin ? <>Welcome <em>back.</em></> : <>Create your <em>account.</em></>}</h1>
+          <p className="page-lead">
+            {isLogin
+              ? "Log in to manage your saved events and reservations."
+              : "Save events, meet your people and make every moment count."}
+          </p>
+          <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+            {!isLogin && <label>Name<input required placeholder="Your name" /></label>}
+            <label>Email<input required type="email" placeholder="you@example.com" /></label>
+            <label>Password<input required type="password" minLength="6" placeholder="At least 6 characters" /></label>
+            <button className="button button-primary" type="submit">
+              {submitted ? (isLogin ? "Logged in ✓" : "Account created ✓") : (isLogin ? "Log in" : "Create account")}
+              <ArrowRight size={16} />
+            </button>
+          </form>
+          <p className="auth-switch">
+            {isLogin ? "New to Gatherly?" : "Already have an account?"}{" "}
+            <Link to={isLogin ? "/signup" : "/login"}>{isLogin ? "Create an account" : "Log in"}</Link>
+          </p>
+        </div>
+      </main>
+    </PageShell>
+  );
 }
 
 function Step({ number, title, text }) {

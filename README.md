@@ -17,6 +17,8 @@ Gatherly is a responsive React landing page for an event management platform. It
 - `/events/:eventTitle` — event details
 - `/about` — project overview
 - `/contact` — contact form
+- `/login` — sign-in form
+- `/signup` — account creation form
 
 ## Run locally
 
