@@ -1,1 +1,1 @@
-export default function Step({ number, title, text }) { return <div className="step"><span className="step-number">{number}</span><div><h3>{title}</h3><p>{text}</p></div></div>; }
+export default function Step({ number, title, text }) { return <div className="step flex gap-4 border-b border-[#eeeae6] py-4"><span className="step-number text-xs font-semibold text-purple">{number}</span><div><h3 className="text-[15px]">{title}</h3><p className="mt-1 text-xs text-muted">{text}</p></div></div>; }

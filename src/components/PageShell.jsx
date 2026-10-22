@@ -1,3 +1,3 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-export default function PageShell({ children }) { return <div className="app"><Navbar />{children}<Footer /></div>; }
+export default function PageShell({ children }) { return <div className="app overflow-hidden"><Navbar />{children}<Footer /></div>; }
