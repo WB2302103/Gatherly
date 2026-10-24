@@ -5,7 +5,7 @@ import EventCard from "../components/EventCard";
 import Step from "../components/Step";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import heroNetworkingImage from "../assets/hero-networking.jpg";
+import heroNetworkingImage from "../assets/shared/hero-networking.jpg";
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState("All events");

@@ -1,6 +1,6 @@
 import { Sparkles, Ticket, Users } from "lucide-react";
 import PageShell from "../components/PageShell";
-import communityImage from "../assets/gatherly-community.jpg";
+import communityImage from "../assets/shared/gatherly-community.jpg";
 
 export default function About() {
   return <PageShell><main className="mx-auto min-h-[620px] max-w-[1180px] px-2.5 py-[110px] max-[850px]:py-[80px] max-[560px]:px-5 max-[560px]:py-[70px]">

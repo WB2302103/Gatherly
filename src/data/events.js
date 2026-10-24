@@ -1,7 +1,7 @@
-import neonNightsImage from "../assets/neon-nights-dj.jpg";
-import futureWorkImage from "../assets/future-work-summit.jpg";
-import clayCalmImage from "../assets/clay-calm-workshop.jpg";
-import sunriseRunImage from "../assets/sunrise-run-club.jpg";
+import neonNightsImage from "../assets/music-events/neon-nights-dj.jpg";
+import futureWorkImage from "../assets/business-events/future-work-summit.jpg";
+import clayCalmImage from "../assets/workshop-events/clay-calm-workshop.jpg";
+import sunriseRunImage from "../assets/sports-events/sunrise-run-club.jpg";
 
 export const categories = [
   { name: "All events", icon: "✦" },
