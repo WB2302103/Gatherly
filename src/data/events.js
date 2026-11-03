@@ -22,6 +22,24 @@ import hacktoberfestImage from "../assets/technology-events/hacktoberfest-chitta
 import icpcImage from "../assets/technology-events/icpc-asia-dhaka-regional-contest.jpg";
 import engineeringConferenceImage from "../assets/technology-events/electrical-engineering-call-for-papers.jpg";
 import dataScienceImage from "../assets/technology-events/data-science-call-for-papers.jpg";
+import marathonImage from "../assets/sports-events/bangladesh-international-marathon-2026.jpg";
+import indiaGrowthImage from "../assets/business-events/india-business-conference-global-growth.png";
+import indiaPlaybookImage from "../assets/business-events/india-business-conference-new-india-playbook.jpg";
+import aiConferenceImage from "../assets/technology-events/international-ai-scientific-intelligence-conference.jpg";
+import cleanExpoImage from "../assets/business-events/china-clean-expo-2027.png";
+import asiaPacificImage from "../assets/business-events/asia-pacific-business-conference-venue.png";
+import businessTechnologyImage from "../assets/business-events/international-business-technology-conference.jpg";
+import bruneiTableTennisImage from "../assets/sports-events/brunei-table-tennis-open-championship-2026.jpg";
+import hayaruBasketballImage from "../assets/sports-events/hayaru-3x3-basketball-challenge-2026.jpg";
+import japanBadmintonImage from "../assets/sports-events/japan-super-750-open-2026.jpg";
+import turkeyFootballImage from "../assets/sports-events/trials-in-turkey-football.jpg";
+import volleyballImage from "../assets/sports-events/lomba-voli-community-tournament.jpg";
+import trackTimesImage from "../assets/sports-events/deputy-mayors-track-times.jpg";
+import infinityRunImage from "../assets/sports-events/infinity-run-for-the-earth.jpg";
+import theebRunImage from "../assets/sports-events/theeb-2026-community-run.jpg";
+import itcTableTennisImage from "../assets/sports-events/itc-dmk-table-tennis-championship-2026.jpg";
+// import womensDayImage from "../assets/community-events/international-womens-day-step-up.jpg";
+// import yalaCampImage from "../assets/community-events/yala-camp-2026.jpg";
 
 export const categories = [
   { name: "All events", icon: "✦" },
@@ -30,6 +48,7 @@ export const categories = [
   { name: "Workshop", icon: "⌘" },
   { name: "Sports", icon: "✧" },
   { name: "Technology", icon: "⌘" },
+  // { name: "Community", icon: "♡" },
 ];
 
 export const events = [
@@ -57,4 +76,22 @@ export const events = [
   { title: "ICPC Asia Dhaka Regional Contest", category: "Technology", date: "Dec 22, 2026", time: "8:00 AM", location: "IUBAT, Dhaka", price: "৳250", image: icpcImage, accent: "blue" },
   { title: "International Engineering Conference", category: "Technology", date: "Jan 12, 2027", time: "9:30 AM", location: "BUET, Dhaka", price: "৳900", image: engineeringConferenceImage, accent: "orange" },
   { title: "Data Science Research Conference", category: "Technology", date: "Jan 20, 2027", time: "10:00 AM", location: "North South University, Dhaka", price: "৳700", image: dataScienceImage, accent: "violet" },
+  { title: "Bangladesh International Marathon 2026", category: "Sports", date: "Oct 16, 2026", time: "6:00 AM", location: "Hatirjheel, Dhaka", price: "৳500", image: marathonImage, accent: "orange" },
+  { title: "India Business Conference: Global Growth", category: "Business", date: "Feb 08, 2027", time: "10:00 AM", location: "Dhaka Business Hub", price: "৳1,000", image: indiaGrowthImage, accent: "blue" },
+  { title: "India Business Conference: New India Playbook", category: "Business", date: "Feb 21, 2027", time: "10:30 AM", location: "Radisson Blu Dhaka Water Garden", price: "৳1,200", image: indiaPlaybookImage, accent: "violet" },
+  { title: "International AI & Scientific Intelligence Conference", category: "Technology", date: "Mar 05, 2027", time: "9:00 AM", location: "Bangabandhu International Conference Center", price: "৳900", image: aiConferenceImage, accent: "orange" },
+  { title: "China Clean Expo 2027", category: "Business", date: "Mar 30, 2027", time: "10:00 AM", location: "Dhaka International Trade Fair Complex", price: "৳800", image: cleanExpoImage, accent: "blue" },
+  { title: "Asia-Pacific Business Conference", category: "Business", date: "Apr 12, 2027", time: "9:30 AM", location: "Dhaka Regency Hotel, Dhaka", price: "৳1,500", image: asiaPacificImage, accent: "violet" },
+  { title: "International Business & Technology Conference", category: "Business", date: "Apr 22, 2027", time: "10:00 AM", location: "Pan Pacific Sonargaon, Dhaka", price: "৳1,000", image: businessTechnologyImage, accent: "orange" },
+  { title: "Brunei Table Tennis Open Championship 2026", category: "Sports", date: "Sep 06, 2026", time: "8:00 AM", location: "Mumong Sports Complex, Brunei", price: "৳600", image: bruneiTableTennisImage, accent: "blue" },
+  { title: "Hayaru 3x3 Basketball Challenge 2026", category: "Sports", date: "Oct 22, 2026", time: "4:00 PM", location: "Thuwana City Sports Arena", price: "৳500", image: hayaruBasketballImage, accent: "violet" },
+  { title: "Japan Super 750 Open 2026", category: "Sports", date: "Nov 14, 2026", time: "10:00 AM", location: "Tokyo Metropolitan Gymnasium, Japan", price: "৳1,200", image: japanBadmintonImage, accent: "orange" },
+  { title: "Trials in Turkey: Football Camp", category: "Sports", date: "Dec 15, 2026", time: "9:00 AM", location: "Antalya Football Academy, Turkey", price: "৳1,000", image: turkeyFootballImage, accent: "blue" },
+  { title: "Lomba Voli Community Tournament", category: "Sports", date: "Dec 24, 2026", time: "3:00 PM", location: "SMA Sports Ground, Indonesia", price: "৳400", image: volleyballImage, accent: "violet" },
+  { title: "Deputy Mayor's Track Times", category: "Sports", date: "Jan 06, 2027", time: "6:30 AM", location: "South Athletics Track, Dhaka", price: "৳300", image: trackTimesImage, accent: "orange" },
+  { title: "Infinity Run for the Earth", category: "Sports", date: "Jan 18, 2027", time: "6:00 AM", location: "Hatirjheel, Dhaka", price: "৳500", image: infinityRunImage, accent: "blue" },
+  { title: "Theeb 2026 Community Run", category: "Sports", date: "Feb 02, 2027", time: "7:00 AM", location: "Doha Community Stadium", price: "৳700", image: theebRunImage, accent: "violet" },
+  { title: "ITC × DMK Table Tennis Championship 2026", category: "Sports", date: "Oct 31, 2026", time: "9:00 AM", location: "Island Hall, Bangkok", price: "৳900", image: itcTableTennisImage, accent: "orange" },
+  // { title: "Step Up: International Women's Day", category: "Community", date: "Mar 08, 2027", time: "8:00 AM", location: "Dhaka Community Center", price: "Free", image: womensDayImage, accent: "violet" },
+  // { title: "Yala Camp 2026", category: "Community", date: "Nov 07, 2026", time: "9:00 AM", location: "Yala, Sri Lanka", price: "৳1,500", image: yalaCampImage, accent: "blue" },
 ];
