@@ -18,6 +18,13 @@ import freelancersImage from "../assets/business-events/dhaka-freelancers-meetup
 import aiWorkshopImage from "../assets/workshop-events/zero-to-production-ai-workshop.jpg";
 import creativeDesignImage from "../assets/workshop-events/creative-design-female-chapter.jpg";
 import womenInTechImage from "../assets/workshop-events/women-in-tech-bangladesh-workshop.jpg";
+import clayCalmImage from "../assets/workshop-events/clay-calm-workshop.jpg";
+import digitalMarketingImage from "../assets/workshop-events/digital-marketing-workshop.jpg";
+import photographyImage from "../assets/workshop-events/photography-workshop.jpg";
+import publicSpeakingImage from "../assets/workshop-events/public-speaking-workshop.jpg";
+import entrepreneurshipImage from "../assets/workshop-events/entrepreneurship-workshop.jpg";
+import careerDevelopmentImage from "../assets/workshop-events/career-development-workshop.jpg";
+import graphicDesignImage from "../assets/workshop-events/graphic-design-workshop.jpg";
 import hacktoberfestImage from "../assets/technology-events/hacktoberfest-chittagong.jpg";
 import icpcImage from "../assets/technology-events/icpc-asia-dhaka-regional-contest.jpg";
 import engineeringConferenceImage from "../assets/technology-events/electrical-engineering-call-for-papers.jpg";
@@ -72,6 +79,13 @@ export const events = [
   { title: "Zero to Production: AI Workshop", category: "Workshop", date: "Dec 16, 2026", time: "10:00 AM", location: "BRAC University, Dhaka", price: "৳750", image: aiWorkshopImage, accent: "violet" },
   { title: "Creative Design Female Chapter", category: "Workshop", date: "Dec 20, 2026", time: "2:00 PM", location: "UIU Campus, Dhaka", price: "৳500", image: creativeDesignImage, accent: "orange" },
   { title: "Women in Tech Bangladesh Workshop", category: "Workshop", date: "Jan 08, 2027", time: "10:30 AM", location: "Daffodil International University", price: "৳600", image: womenInTechImage, accent: "blue" },
+  { title: "Clay & Calm Workshop", category: "Workshop", date: "Jan 12, 2027", time: "11:00 AM", location: "Aestara Handmade Studio, Dhaka", price: "৳450", image: clayCalmImage, accent: "violet" },
+  { title: "Digital Marketing Workshop", category: "Workshop", date: "Jan 15, 2027", time: "2:30 PM", location: "Dhaka Business Hub", price: "৳500", image: digitalMarketingImage, accent: "orange" },
+  { title: "Photography Workshop", category: "Workshop", date: "Jan 22, 2027", time: "10:00 AM", location: "Bashundhara Art Space, Dhaka", price: "৳450", image: photographyImage, accent: "violet" },
+  { title: "Public Speaking Workshop", category: "Workshop", date: "Jan 29, 2027", time: "1:00 PM", location: "North South University, Dhaka", price: "৳400", image: publicSpeakingImage, accent: "blue" },
+  { title: "Entrepreneurship Workshop", category: "Workshop", date: "Feb 05, 2027", time: "11:15 AM", location: "DU Innovation Hub, Dhaka", price: "৳600", image: entrepreneurshipImage, accent: "orange" },
+  { title: "Career Development Workshop", category: "Workshop", date: "Feb 12, 2027", time: "10:00 AM", location: "Dhaka Career Center", price: "৳500", image: careerDevelopmentImage, accent: "violet" },
+  { title: "Graphic Design Workshop", category: "Workshop", date: "Feb 19, 2027", time: "3:00 PM", location: "Creative IT Institute, Dhaka", price: "৳550", image: graphicDesignImage, accent: "blue" },
   { title: "Hacktoberfest Hack Days Chittagong", category: "Technology", date: "Dec 12, 2026", time: "9:00 AM", location: "Chittagong Independent University", price: "৳300", image: hacktoberfestImage, accent: "violet" },
   { title: "ICPC Asia Dhaka Regional Contest", category: "Technology", date: "Dec 22, 2026", time: "8:00 AM", location: "IUBAT, Dhaka", price: "৳250", image: icpcImage, accent: "blue" },
   { title: "International Engineering Conference", category: "Technology", date: "Jan 12, 2027", time: "9:30 AM", location: "BUET, Dhaka", price: "৳900", image: engineeringConferenceImage, accent: "orange" },
