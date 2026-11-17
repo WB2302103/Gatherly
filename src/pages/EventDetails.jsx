@@ -3,9 +3,21 @@ import { Link, useParams } from "react-router-dom";
 import { events } from "../data/events";
 import PageShell from "../components/PageShell";
 import Button from "../components/Button";
+
+function getEventActionLabel(event) {
+  const title = event.title.toLowerCase();
+
+  if (event.category === "Music") return "Reserve your spot";
+  if (event.category === "Workshop") return "Join workshop";
+  if (event.category === "Sports") return "Register now";
+  if (title.includes("training") || title.includes("bootcamp")) return "Apply now";
+
+  return "Register now";
+}
+
 export default function EventDetails() {
   const { eventTitle } = useParams();
   const event = events.find((item) => item.title === decodeURIComponent(eventTitle));
   if (!event) return <PageShell><main className="mx-auto min-h-[620px] max-w-[1180px] px-2.5 py-[110px] max-[560px]:px-5 max-[560px]:py-[70px]"><h1 className="my-[18px] text-[60px] font-semibold leading-[1.08] tracking-[-3px] max-[560px]:text-[43px]">Event not found.</h1><Link className="inline-flex items-center gap-[9px] rounded-full bg-purple px-[23px] py-[15px] text-[13px] font-semibold text-white shadow-[0_9px_20px_#6554db2e] transition hover:-translate-y-0.5" to="/events">Back to events</Link></main></PageShell>;
-  return <PageShell><main className="mx-auto grid min-h-[650px] max-w-[1180px] grid-cols-[48%_1fr] items-center gap-[75px] px-2.5 py-[90px] max-[850px]:grid-cols-1 max-[850px]:gap-10 max-[560px]:px-5 max-[560px]:py-[55px]"><img className="h-[510px] w-full rounded-tl-[18px] rounded-tr-[120px] rounded-b-[18px] object-cover max-[850px]:h-[380px] max-[560px]:h-[300px] max-[560px]:rounded-tl-[14px] max-[560px]:rounded-tr-[70px] max-[560px]:rounded-b-[14px]" src={event.image} alt={event.title} /><div><span className={`inline-block rounded-[5px] px-2.5 py-1.5 text-[9px] font-semibold text-white ${event.accent === "orange" ? "bg-[#e98250]" : event.accent === "blue" ? "bg-[#5086a9]" : "bg-[#6d5de4]"}`}>{event.category}</span><h1 className="my-[18px] max-w-[760px] text-[60px] font-semibold leading-[1.08] tracking-[-3px] max-[560px]:text-[43px]">{event.title}</h1><p className="max-w-[560px] text-[15px] leading-[1.7] text-muted">Join a welcoming community for an unforgettable experience filled with new ideas, great conversations and memorable moments.</p><div className="my-[30px] flex flex-col gap-3.5 text-[13px] text-muted"><span className="flex items-center gap-2.5"><CalendarDays size={17} /> {event.date}</span><span className="flex items-center gap-2.5"><Clock3 size={17} /> {event.time}</span><span className="flex items-center gap-2.5"><MapPin size={17} /> {event.location}</span></div><Button onClick={() => window.alert("Booking will be available in the final version.")}>Reserve your spot <Ticket size={17} /></Button></div></main></PageShell>;
+  return <PageShell><main className="mx-auto grid min-h-[650px] max-w-[1180px] grid-cols-[48%_1fr] items-center gap-[75px] px-2.5 py-[90px] max-[850px]:grid-cols-1 max-[850px]:gap-10 max-[560px]:px-5 max-[560px]:py-[55px]"><img className="h-[510px] w-full rounded-tl-[18px] rounded-tr-[120px] rounded-b-[18px] object-cover max-[850px]:h-[380px] max-[560px]:h-[300px] max-[560px]:rounded-tl-[14px] max-[560px]:rounded-tr-[70px] max-[560px]:rounded-b-[14px]" src={event.image} alt={event.title} /><div><span className={`inline-block rounded-[5px] px-2.5 py-1.5 text-[9px] font-semibold text-white ${event.accent === "orange" ? "bg-[#e98250]" : event.accent === "blue" ? "bg-[#5086a9]" : "bg-[#6d5de4]"}`}>{event.category}</span><h1 className="my-[18px] max-w-[760px] text-[60px] font-semibold leading-[1.08] tracking-[-3px] max-[560px]:text-[43px]">{event.title}</h1><p className="max-w-[560px] text-[15px] leading-[1.7] text-muted">Join a welcoming community for an unforgettable experience filled with new ideas, great conversations and memorable moments.</p><div className="my-[30px] flex flex-col gap-3.5 text-[13px] text-muted"><span className="flex items-center gap-2.5"><CalendarDays size={17} /> {event.date}</span><span className="flex items-center gap-2.5"><Clock3 size={17} /> {event.time}</span><span className="flex items-center gap-2.5"><MapPin size={17} /> {event.location}</span></div><Button onClick={() => window.alert("Booking will be available in the final version.")}>{getEventActionLabel(event)} <Ticket size={17} /></Button></div></main></PageShell>;
 }
