@@ -29,6 +29,11 @@ import hacktoberfestImage from "../assets/technology-events/hacktoberfest-chitta
 import icpcImage from "../assets/technology-events/icpc-asia-dhaka-regional-contest.jpg";
 import engineeringConferenceImage from "../assets/technology-events/electrical-engineering-call-for-papers.jpg";
 import dataScienceImage from "../assets/technology-events/data-science-call-for-papers.jpg";
+import blockchainConferenceImage from "../assets/technology-events/blockchain-technology-conference.jpg";
+import cloudComputingImage from "../assets/technology-events/cloud-computing-summit.jpg";
+import cybersecurityWorkshopImage from "../assets/technology-events/cybersecurity-technology-workshop.png";
+import roboticsExpoImage from "../assets/technology-events/robotics-innovation-expo.jpg";
+import webDevelopmentImage from "../assets/technology-events/web-development-bootcamp.jpg";
 import marathonImage from "../assets/sports-events/bangladesh-international-marathon-2026.jpg";
 import indiaGrowthImage from "../assets/business-events/india-business-conference-global-growth.png";
 import indiaPlaybookImage from "../assets/business-events/india-business-conference-new-india-playbook.jpg";
@@ -90,6 +95,11 @@ export const events = [
   { title: "ICPC Asia Dhaka Regional Contest", category: "Technology", date: "Dec 22, 2026", time: "8:00 AM", location: "IUBAT, Dhaka", price: "৳250", image: icpcImage, accent: "blue" },
   { title: "International Engineering Conference", category: "Technology", date: "Jan 12, 2027", time: "9:30 AM", location: "BUET, Dhaka", price: "৳900", image: engineeringConferenceImage, accent: "orange" },
   { title: "Data Science Research Conference", category: "Technology", date: "Jan 20, 2027", time: "10:00 AM", location: "North South University, Dhaka", price: "৳700", image: dataScienceImage, accent: "violet" },
+  { title: "Blockchain Technology Conference", category: "Technology", date: "Jan 27, 2027", time: "10:00 AM", location: "ICT Tower, Dhaka", price: "৳800", image: blockchainConferenceImage, accent: "blue" },
+  { title: "Cloud Computing Summit", category: "Technology", date: "Feb 03, 2027", time: "9:30 AM", location: "Dhaka Convention Center", price: "৳900", image: cloudComputingImage, accent: "orange" },
+  { title: "Cybersecurity Technology Workshop", category: "Technology", date: "Feb 10, 2027", time: "11:00 AM", location: "BRAC University, Dhaka", price: "৳600", image: cybersecurityWorkshopImage, accent: "violet" },
+  { title: "Robotics Innovation Expo", category: "Technology", date: "Feb 17, 2027", time: "10:00 AM", location: "Bangladesh Shilpakala Academy, Dhaka", price: "৳500", image: roboticsExpoImage, accent: "blue" },
+  { title: "Web Development Bootcamp", category: "Technology", date: "Feb 24, 2027", time: "9:00 AM", location: "Daffodil International University", price: "৳700", image: webDevelopmentImage, accent: "orange" },
   { title: "Bangladesh International Marathon 2026", category: "Sports", date: "Oct 16, 2026", time: "6:00 AM", location: "Hatirjheel, Dhaka", price: "৳500", image: marathonImage, accent: "orange" },
   { title: "India Business Conference: Global Growth", category: "Business", date: "Feb 08, 2027", time: "10:00 AM", location: "Dhaka Business Hub", price: "৳1,000", image: indiaGrowthImage, accent: "blue" },
   { title: "India Business Conference: New India Playbook", category: "Business", date: "Feb 21, 2027", time: "10:30 AM", location: "Radisson Blu Dhaka Water Garden", price: "৳1,200", image: indiaPlaybookImage, accent: "violet" },
